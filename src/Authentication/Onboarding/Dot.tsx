@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import Animated, { interpolate, Extrapolate } from "react-native-reanimated";
 
 interface DotProps {
@@ -36,5 +35,3 @@ const Dot = ({ index, currentIndex }: DotProps) => {
 };
 
 export default Dot;
-
-const styles = StyleSheet.create({});

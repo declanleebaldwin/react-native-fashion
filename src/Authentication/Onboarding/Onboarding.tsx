@@ -3,7 +3,6 @@ import { View, StyleSheet, Dimensions } from "react-native";
 // import { ScrollView } from "react-native-gesture-handler";
 import Animated, { multiply, divide } from "react-native-reanimated";
 import {
-  useValue,
   interpolateColor,
   useScrollHandler,
 } from "react-native-redash";
