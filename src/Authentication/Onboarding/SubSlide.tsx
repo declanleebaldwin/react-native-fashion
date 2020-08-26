@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     marginBottom: 12,
-    color: "#0C0D34",
     textAlign: "center",
   },
   description: {
