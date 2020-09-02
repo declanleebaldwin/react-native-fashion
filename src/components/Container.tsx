@@ -2,8 +2,6 @@ import React, { ReactNode } from "react";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   StyleSheet,
-  Text,
-  View,
   Image,
   Dimensions,
   StatusBar,
@@ -70,4 +68,3 @@ const Container = ({ children, footer }: ContainerProps) => {
 
 export default Container;
 
-const styles = StyleSheet.create({});

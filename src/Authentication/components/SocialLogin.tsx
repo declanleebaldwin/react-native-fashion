@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { StyleSheet, Text, View } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import theme, { Box } from "../../components/Theme";
 
@@ -83,4 +82,3 @@ const SocialLogin = () => {
 
 export default SocialLogin;
 
-const styles = StyleSheet.create({});

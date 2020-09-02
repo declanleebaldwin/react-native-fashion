@@ -5,16 +5,6 @@ import { useTheme } from "@shopify/restyle";
 
 import { Theme, Text } from "./Theme";
 
-const styles = StyleSheet.create({
-  container: {
-    borderRadius: 25,
-    height: 50,
-    width: 245,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
-
 interface ButtonProps {
   variant: "default" | "primary" | "transparent";
   label?: string;
@@ -51,3 +41,13 @@ const Button = ({ label, onPress, variant, children }: ButtonProps) => {
 Button.defaultProps = { variant: "default" };
 
 export default Button;
+
+const styles = StyleSheet.create({
+  container: {
+    borderRadius: 25,
+    height: 50,
+    width: 245,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
