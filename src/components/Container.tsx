@@ -6,7 +6,7 @@ import {
   Dimensions,
   StatusBar,
 } from "react-native";
-import theme, { Box } from "./Theme";
+import { Box, useTheme } from "./Theme";
 
 interface ContainerProps {
   children: ReactNode;
@@ -19,6 +19,7 @@ const aspectRatio = 750 / 1125;
 const height = width * aspectRatio;
 
 const Container = ({ children, footer }: ContainerProps) => {
+  const theme = useTheme();
   const insets = useSafeAreaInsets();  
   return (
     <Box flex={1} backgroundColor="secondary">

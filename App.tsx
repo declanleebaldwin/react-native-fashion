@@ -1,9 +1,10 @@
 import "react-native-gesture-handler";
 import * as React from "react";
 import { ThemeProvider } from "@shopify/restyle";
-import { LoadAssets, theme } from "./src/components";
+import { theme } from "./src/components/Theme";
 import { AuthenticationNavigator } from "./src/Authentication";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { LoadAssets } from "./src/components";
 const fonts = {
   "SFProDisplay-Bold": require("./assets/fonts/SF-Pro-Display-Bold.otf"),
   "SFProDisplay-Semibold": require("./assets/fonts/SF-Pro-Display-Semibold.otf"),

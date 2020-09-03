@@ -10,8 +10,8 @@ import { interpolateColor, useScrollHandler } from "react-native-redash";
 import Slide, { SLIDE_HEIGHT } from "./Slide";
 import SubSlide from "./SubSlide";
 import Dot from "./Dot";
-import { theme } from "../../components";
 import { Routes, StackNavigationProps } from "../../components/Navigation";
+import { useTheme, makeStyles, Theme } from "../../components/Theme";
 
 const { width } = Dimensions.get("window");
 
@@ -83,6 +83,8 @@ export const assets = slides.map((slide) => slide.picture.src);
 const Onboarding = ({
   navigation,
 }: StackNavigationProps<Routes, "Onboarding">) => {
+  const styles = useStyles();
+  const theme = useTheme();
   const scroll = useRef<Animated.ScrollView>(null);
   const { scrollHandler, x } = useScrollHandler();
   const backgroundColor = interpolateColor(x, {
@@ -179,15 +181,15 @@ const Onboarding = ({
 
 export default Onboarding;
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((theme: Theme) => ({
   container: {
     flex: 1,
     backgroundColor: "white",
   },
   underlay: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: "flex-end",
     alignItems: "center",
+    justifyContent: "flex-end",
     borderBottomRightRadius: theme.borderRadii.xl,
     overflow: "hidden",
   },
@@ -195,19 +197,19 @@ const styles = StyleSheet.create({
     height: SLIDE_HEIGHT,
     borderBottomRightRadius: theme.borderRadii.xl,
   },
+  footer: {
+    flex: 1,
+  },
   footerContent: {
     flex: 1,
     backgroundColor: "white",
     borderTopLeftRadius: theme.borderRadii.xl,
   },
-  footer: {
-    flex: 1,
-  },
   pagination: {
     ...StyleSheet.absoluteFillObject,
     height: theme.borderRadii.xl,
-    justifyContent: "center",
     flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
   },
-});
+}));
