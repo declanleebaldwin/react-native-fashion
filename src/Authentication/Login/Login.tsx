@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Container, Button, Text, Box } from "../../components";
+import { TextInput as RNTextInput } from "react-native";
 import TextInput from "../components/Forms/TextInput";
 import Checkbox from "../components/Forms/Checkbox";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Footer from "../../components/Footer";
+import { StackNavigationProps, Routes } from "../../components/Navigation";
 
 const LoginSchema = Yup.object().shape({
   password: Yup.string()
@@ -13,12 +15,13 @@ const LoginSchema = Yup.object().shape({
     .required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
 });
-const Login = () => {
+const Login = ({ navigation }: StackNavigationProps<Routes>) => {
+  const password = useRef<RNTextInput>(null);
   const footer = (
     <Footer
       title="Don't have an account?"
       action="Sign Up here"
-      onPress={() => alert("Sign Up!")}
+      onPress={() => navigation.navigate("SignUp")}
     />
   );
   const {
@@ -37,7 +40,7 @@ const Login = () => {
   return (
     <Container {...{ footer }}>
       <Box padding="xl">
-        <Text variant="title1" textAlign="center" marginBottom="l">
+        <Text variant="title1" textAlign="center">
           Welcome back
         </Text>
         <Text variant="body" textAlign="center" marginBottom="l">
@@ -52,15 +55,27 @@ const Login = () => {
               onBlur={handleBlur("email")}
               error={errors.email}
               touched={touched.email}
+              autoCompleteType="email"
+              autoCapitalize="none"
+              returnKeyType="next"
+              returnKeyLabel="next"
+              onSubmitEditing={() => password.current?.focus()}
             />
           </Box>
           <TextInput
+            ref={password}
             icon="lock"
             placeholder="Enter your password"
             onChangeText={handleChange("password")}
             onBlur={handleBlur("password")}
             error={errors.password}
             touched={touched.password}
+            secureTextEntry
+            autoCompleteType="password"
+            autoCapitalize="none"
+            returnKeyType="go"
+            returnKeyLabel="go"
+            onSubmitEditing={() => handleSubmit()}
           />
           <Box flexDirection="row" justifyContent="space-between">
             <Checkbox
@@ -68,7 +83,10 @@ const Login = () => {
               checked={values.remember}
               onChange={() => setFieldValue("remember", !values.remember)}
             />
-            <Button variant="transparent" onPress={() => {}}>
+            <Button
+              variant="transparent"
+              onPress={() => navigation.navigate("ForgotPassword")}
+            >
               <Text color="primary">Forgot password</Text>
             </Button>
           </Box>

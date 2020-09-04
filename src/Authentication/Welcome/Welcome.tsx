@@ -12,7 +12,7 @@ const picture = {
   height: 5074,
 };
 export const assets = [picture.src];
-const Welcome = ({navigation} : StackNavigationProps<Routes, "Welcome">) => {
+const Welcome = ({navigation} : StackNavigationProps<Routes>) => {
   const theme = useTheme();
   return (
     <Box flex={1} backgroundColor="white">
@@ -58,11 +58,11 @@ const Welcome = ({navigation} : StackNavigationProps<Routes, "Welcome">) => {
             label="Have an account? Login"
             onPress={() => navigation.navigate("Login")}
           />
-          <Button label="Join us, it’s Free" onPress={() => true} />
+          <Button label="Join us, it’s Free" onPress={() => navigation.navigate("SignUp")} />
           <Button
             variant="transparent"
             label="Forgot password?"
-            onPress={() => true}
+            onPress={() => navigation.navigate("ForgotPassword")}
           />
         </Box>
       </Box>
