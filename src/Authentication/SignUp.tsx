@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
-import { Container, Button, Text, Box } from "../../components";
+import { Container, Button, Text, Box } from "../components";
 import { TextInput as RNTextInput } from "react-native";
-import TextInput from "../components/Forms/TextInput";
+import TextInput from "./components/Forms/TextInput";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Footer from "../../components/Footer";
-import { StackNavigationProps, Routes } from "../../components/Navigation";
+import Footer from "../components/Footer";
+import { StackNavigationProps, Routes } from "../components/Navigation";
 
 const SignUpSchema = Yup.object().shape({
   password: Yup.string()

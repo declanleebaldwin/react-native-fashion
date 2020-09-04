@@ -1,11 +1,11 @@
 import React from "react";
-import { StyleSheet, View, Linking } from "react-native";
-import { StackNavigationProps, Routes } from "../../components/Navigation";
-import Footer from "../../components/Footer";
-import { Container, Box, Text, Button } from "../../components";
+import {  Linking } from "react-native";
+import { StackNavigationProps, Routes } from "../components/Navigation";
+import Footer from "../components/Footer";
+import { Container, Box, Text, Button } from "../components";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import TextInput from "../components/Forms/TextInput";
+import TextInput from "./components/Forms/TextInput";
 
 const ForgotPasswordSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -69,5 +69,3 @@ const ForgotPassword = ({
 };
 
 export default ForgotPassword;
-
-const styles = StyleSheet.create({});
