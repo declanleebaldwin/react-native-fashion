@@ -15,7 +15,7 @@ const LoginSchema = Yup.object().shape({
     .required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
 });
-const Login = ({ navigation }: StackNavigationProps<Routes>) => {
+const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
   const password = useRef<RNTextInput>(null);
   const footer = (
     <Footer

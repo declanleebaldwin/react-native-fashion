@@ -12,7 +12,7 @@ const picture = {
   height: 5074,
 };
 export const assets = [picture.src];
-const Welcome = ({navigation} : StackNavigationProps<Routes>) => {
+const Welcome = ({navigation} : StackNavigationProps<Routes, "Welcome">) => {
   const theme = useTheme();
   return (
     <Box flex={1} backgroundColor="white">

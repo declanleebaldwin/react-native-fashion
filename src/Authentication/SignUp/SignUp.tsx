@@ -18,7 +18,7 @@ const SignUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
 });
 
-const SignUp = ({ navigation }: StackNavigationProps<Routes>) => {
+const SignUp = ({ navigation }: StackNavigationProps<Routes, 'SignUp'>) => {
   const footer = (
     <Footer
       title="Already have an account?"
