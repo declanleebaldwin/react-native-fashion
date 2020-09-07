@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { Container, Button, Text, Box } from "../components";
 import { TextInput as RNTextInput } from "react-native";
-import TextInput from "./components/Forms/TextInput";
+import TextInput from "../components/Forms/TextInput";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Footer from "../components/Footer";
+import Footer from "./components/Footer";
 import { StackNavigationProps, Routes } from "../components/Navigation";
 
 const SignUpSchema = Yup.object().shape({
@@ -41,7 +41,7 @@ const SignUp = ({ navigation }: StackNavigationProps<Routes, 'SignUp'>) => {
   const password = useRef<RNTextInput>(null);
   const passwordConfirmation = useRef<RNTextInput>(null);
   return (
-    <Container {...{ footer }}>
+    <Container pattern={1} {...{ footer }}>
       <Box padding="xl">
         <Text variant="title1" textAlign="center">
           Create an account

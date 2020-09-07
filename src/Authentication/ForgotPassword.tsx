@@ -1,11 +1,11 @@
 import React from "react";
-import {  Linking } from "react-native";
+import { Linking } from "react-native";
 import { StackNavigationProps, Routes } from "../components/Navigation";
-import Footer from "../components/Footer";
+import Footer from "./components/Footer";
 import { Container, Box, Text, Button } from "../components";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import TextInput from "./components/Forms/TextInput";
+import TextInput from "../components/Forms/TextInput";
 
 const ForgotPasswordSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -31,13 +31,13 @@ const ForgotPassword = ({
     }
   );
   return (
-    <Container {...{ footer }}>
+    <Container pattern={2} {...{ footer }}>
       <Box padding="xl">
         <Text variant="title1" textAlign="center">
-        Forgot password?
+          Forgot password?
         </Text>
         <Text variant="body" textAlign="center" marginBottom="l">
-        Enter the email address associated with your account
+          Enter the email address associated with your account
         </Text>
         <Box>
           <Box marginBottom="m">

@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import { Container, Button, Text, Box } from "../components";
 import { TextInput as RNTextInput } from "react-native";
-import TextInput from "./components/Forms/TextInput";
-import Checkbox from "./components/Forms/Checkbox";
+import TextInput from "../components/Forms/TextInput";
+import Checkbox from "../components/Forms/Checkbox";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Footer from "../components/Footer";
+import Footer from "./components/Footer";
 import { StackNavigationProps, Routes } from "../components/Navigation";
 
 const LoginSchema = Yup.object().shape({
@@ -38,7 +38,8 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
     onSubmit: (values) => console.log(values),
   });
   return (
-    <Container {...{ footer }}>
+    <Container pattern={0} {...{ footer }}>
+      
       <Box padding="xl">
         <Text variant="title1" textAlign="center">
           Welcome back
