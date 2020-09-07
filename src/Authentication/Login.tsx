@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Footer from "./components/Footer";
 import { StackNavigationProps, Routes } from "../components/Navigation";
+import { BorderlessButton } from "react-native-gesture-handler";
 
 const LoginSchema = Yup.object().shape({
   password: Yup.string()
@@ -39,7 +40,6 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
   });
   return (
     <Container pattern={0} {...{ footer }}>
-      
       <Box padding="xl">
         <Text variant="title1" textAlign="center">
           Welcome back
@@ -78,18 +78,24 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
             returnKeyLabel="go"
             onSubmitEditing={() => handleSubmit()}
           />
-          <Box flexDirection="row" justifyContent="space-between">
+          <Box
+            flexDirection="row"
+            justifyContent="space-between"
+            alignItems="center"
+            marginVertical="s"
+          >
             <Checkbox
               label="Remember me"
               checked={values.remember}
               onChange={() => setFieldValue("remember", !values.remember)}
             />
-            <Button
-              variant="transparent"
+            <BorderlessButton
               onPress={() => navigation.navigate("ForgotPassword")}
             >
-              <Text color="primary">Forgot password</Text>
-            </Button>
+              <Text variant="button" color="primary">
+                Forgot password
+              </Text>
+            </BorderlessButton>
           </Box>
           <Box alignItems="center" marginTop="m">
             <Button
