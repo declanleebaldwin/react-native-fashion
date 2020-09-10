@@ -13,7 +13,12 @@ export const theme = {
     text: "rgba(12, 13, 52, 0.7)",
     white: "white",
     grey: "#F4F0EF",
+    lightGrey: "#FAFAFA",
     primaryLight: "#E7F9F7",
+    orange: "#FE5E33",
+    yellow: "#FFC641",
+    pink: "#FF87A2",
+    violet: "#442CB9",
   },
   spacing: {
     s: 8,
@@ -61,6 +66,7 @@ export const theme = {
   },
   breakpoints: {},
 };
+
 
 export type Theme = typeof theme;
 export const Box = createBox<Theme>();
