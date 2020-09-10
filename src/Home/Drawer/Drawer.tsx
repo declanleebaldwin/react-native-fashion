@@ -4,10 +4,10 @@ import {
   Box,
   Text,
   useTheme,
-  RoundedIconButton,
   Header,
 } from "../../components";
 import DrawerItem, { DrawerItemProps } from "./DrawerItem";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
 
 const { width } = Dimensions.get("window");
 export const DRAWER_WIDTH = width * 0.8;
@@ -54,6 +54,7 @@ const items: DrawerItemProps[] = [
 ];
 
 const Drawer = () => {
+  const navigation = useNavigation();
   const theme = useTheme();
   return (
     <Box flex={1}>
@@ -69,7 +70,10 @@ const Drawer = () => {
         >
           <Header
             title="Menu"
-            left={{ icon: "x", onPress: () => true }}
+            left={{
+              icon: "x",
+              onPress: () => navigation.dispatch(DrawerActions.closeDrawer()),
+            }}
             right={{ icon: "shopping-bag", onPress: () => true }}
             dark
           />

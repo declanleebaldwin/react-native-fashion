@@ -28,14 +28,16 @@ const Header = ({ title, left, right, dark }: HeaderProps) => {
       paddingHorizontal="m"
     >
       <RoundedIconButton
-        size={24}
+        size={44}
+        iconRatio={0.4}
         name={left.icon}
         {...{ color, backgroundColor }}
         onPress={left.onPress}
       />
       <Text {...{ color }}>{title.toUpperCase()}</Text>
       <RoundedIconButton
-        size={24}
+        size={44}
+        iconRatio={0.4}
         name={right.icon}
         {...{ color, backgroundColor }}
         onPress={right.onPress}
@@ -43,5 +45,10 @@ const Header = ({ title, left, right, dark }: HeaderProps) => {
     </Box>
   );
 };
+
+Header.defaultProps = {
+  dark: false,
+};
+
 
 export default Header;
